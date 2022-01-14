@@ -4,9 +4,28 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app",
+    "start:dev": "nodemon app"
   },
   "author": "",
   "license": "ISC",
-  "repository": "https://github.com/hsbysddq/impostor-team.git"
+  "repository": "https://github.com/hsbysddq/impostor-team.git",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.1",
+    "sequelize": "^6.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "sequelize-cli": "^6.4.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
 }
