@@ -1,8 +1,7 @@
 const bcrypt = require('bcrypt');
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 const { User } = require('../database/models');
-const jwtGenerator = require("../utils/jwtGenerator");
-
+const jwtGenerator = require('../utils/jwtGenerator');
 
 //Register
 const signToken = (id) => {
@@ -11,7 +10,7 @@ const signToken = (id) => {
   });
 };
 
-createSendToken = (user, statusCode, res) => {
+const createSendToken = (user, statusCode, res) => {
   const token = signToken(user.id);
   const cookieOptions = {
     expires: new Date(
@@ -20,12 +19,12 @@ createSendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
 
-  res.cookie("jwt", token, cookieOptions);
+  res.cookie('jwt', token, cookieOptions);
 
   user.password = undefined;
 
   res.status(statusCode).json({
-    status: "success",
+    status: 'success',
     token,
     data: {
       user,
@@ -33,30 +32,30 @@ createSendToken = (user, statusCode, res) => {
   });
 };
 // authorizeentication
-exports.register= async (req, res) => {
+exports.register = async (req, res) => {
   try {
     //cek jika ada
-    const user = await Model.UserGame.findOne({
+    const isExists = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
-    if (user) {
-      return res.status(401).json("User already exist!");
+    if (isExists) {
+      return res.status(401).json('User already exist!');
     }
 
-    const newUser = await Model.UserGame.create({
-      id: req.body.id,
+    const hash = await bcrypt.hash(req.body.password, 12);
+    const user = await User.create({
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
+      password: hash,
     });
 
-    createSendToken(newUser, 201, res);
+    createSendToken(user, 201, res);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).send('Server error');
   }
 };
 
