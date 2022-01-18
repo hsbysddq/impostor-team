@@ -5,6 +5,7 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./Pages/Home/Home";
+import App from "./App.js";
 
 ReactDOM.render(
   <React.StrictMode>
