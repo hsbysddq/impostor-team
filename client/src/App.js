@@ -5,6 +5,7 @@ import Login from "./container/pages/Login";
 // import PlayGame from './container/pages/PlayGame';
 import Register from "./container/pages/Register";
 import ResetPassword from "./container/pages/ResetPassword";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

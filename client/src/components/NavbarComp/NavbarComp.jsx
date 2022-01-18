@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button'
 import './NavbarComp.css';
 
 const Navmenu = () => {
@@ -34,8 +35,8 @@ const Navmenu = () => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                    <button href="/login" className="btn-login me-4">Login</button>
-                    <button href="/register" className="btn-register">Register</button>
+                    <Button variant="light" href="/login" className="btn-login me-4">Login</Button>
+                    <Button href="/register" className="btn-register">Register</Button>
                 </Form>
                 
             </Container>
