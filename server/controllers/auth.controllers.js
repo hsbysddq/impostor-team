@@ -51,6 +51,7 @@ exports.register = async (req, res) => {
       username: req.body.username,
       password: hash,
     });
+    console.log('user:', user);
 
     createSendToken(user, 201, res);
   } catch (err) {

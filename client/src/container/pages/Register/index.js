@@ -3,14 +3,10 @@ import axios from 'axios'
 
 import FormRegister from '../../../components/FormRegister'
 
-// const bcrypt = require('bcrypt')
-
-function Register() {
+function Register(props) {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-    // const passwordHash = bcrypt.hash(password, 12)
 
     const handleSubmit = () => {
         const data = {
@@ -19,7 +15,7 @@ function Register() {
             password
         }
         console.log('data: ', data);
-        axios.post(`http://localhost:3001/register`, data)
+        axios.post(`http://localhost:7000/api/register`, data)
         .then((res) => {
             console.log('success');
         }, (err) => {
@@ -32,6 +28,7 @@ function Register() {
             <FormRegister 
                 title="Register"
                 textButton="Register"
+                isRegister={true}
                 onInputUsername={(e) => setUsername(e.target.value)}
                 onInputEmail={(e) => setEmail(e.target.value)}
                 onInputPassword={(e) => setPassword(e.target.value)}
