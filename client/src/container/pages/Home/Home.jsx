@@ -8,7 +8,9 @@ import Navmenu from '../../../components/NavbarComp/NavbarComp';
 const Home = () => {
     return(
         <>
-            <Navmenu />
+            <Navmenu 
+            urlLogin='/login'
+            textLogin='Login' />
             <Hero />
             <ListGame />
             <AboutCompnent />

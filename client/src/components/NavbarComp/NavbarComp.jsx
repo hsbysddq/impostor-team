@@ -6,11 +6,13 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button'
 import './NavbarComp.css';
+import { Link } from "react-router-dom";
 
-const Navmenu = () => {
+const Navmenu = (props) => {
+    
     return(
         <>
-        <Navbar className="position-fixed top-0 w-100 pt-5 mb-5" bg="transparent" expand="lg">
+        <Navbar className="top-0 w-100 pt-5 mb-5" bg="transparent" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">
                 <img
@@ -35,8 +37,12 @@ const Navmenu = () => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                    <Button href="/login" className="button-login me-4">Login</Button>
-                    <Button href="/register" className="btn-register">Register</Button>
+                    <Link to={props.urlLogin}>
+                        <Button href="/login" className="button-login me-4">{props.textLogin}</Button>
+                    </Link>
+                    <Link>
+                        <Button href="/register" className="btn-register">Register</Button>
+                    </Link>
                 </Form>
                 
             </Container>

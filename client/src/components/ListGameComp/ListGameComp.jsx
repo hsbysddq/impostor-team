@@ -6,7 +6,8 @@ import './ListGameComp.css';
 const ListGame = () => {
     return(
         <>
-        <div className="container list-game">
+        <section className="list-game">
+        <div className="container">
             <div className="row">
                 <div className="col">
                     <h2 className="text-center title-game">List Game</h2>  
@@ -40,6 +41,8 @@ const ListGame = () => {
             </Row>
             
         </div>
+        {/* <img src="./assets/img/wave2.png" alt="" className="img-wave" /> */}
+        </section>
         </>
     )
 }

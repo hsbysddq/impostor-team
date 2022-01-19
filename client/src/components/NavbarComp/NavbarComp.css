@@ -3,9 +3,9 @@
   --alef: "Alef", sans-serif;
 }
 
-/* body {
-    background-color: #5956e9;
-  } */
+body {
+  background-color: #5956e9 !important;
+}
 
 * {
   z-index: 2;

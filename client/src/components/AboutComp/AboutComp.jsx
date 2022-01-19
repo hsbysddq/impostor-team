@@ -4,7 +4,7 @@ import './AboutComp.css';
 const AboutCompnent = () => {
     return(
         <>
-        <img src="./assets/img/wave2.png" alt="" className="img-wave" />
+        {/* <img src="./assets/img/wave2.png" alt="" className="img-wave" /> */}
         <section className="about">
             <div className="container">
                 <div className="row">
