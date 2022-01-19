@@ -35,7 +35,7 @@ const Navmenu = () => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                    <Button variant="light" href="/login" className="btn-login me-4">Login</Button>
+                    <Button href="/login" className="button-login me-4">Login</Button>
                     <Button href="/register" className="btn-register">Register</Button>
                 </Form>
                 

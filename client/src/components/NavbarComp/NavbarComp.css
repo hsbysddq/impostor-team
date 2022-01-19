@@ -4,8 +4,8 @@
 }
 
 /* body {
-  background-color: #5956e9;
-} */
+    background-color: #5956e9;
+  } */
 
 * {
   z-index: 2;
@@ -22,13 +22,13 @@
   color: #fff;
 }
 
-.btn-login,
+.button-login,
 .btn-register {
   font-family: var(--martel);
-  font-size: 14px;
-  background-color: #fff;
-  padding: 10px 25px;
-  border-radius: 20px;
-  color: #5856e7;
-  border: none;
+  font-size: 14px !important;
+  background-color: #fff !important;
+  padding: 10px 27px !important;
+  border-radius: 20px !important;
+  color: #5856e7 !important;
+  border: none !important;
 }

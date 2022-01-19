@@ -11,10 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.hero-tagline h1 {
-  font-family: var(--alef);
-  font-weight: 700;
-  font-size: 92px;
-  color: #fff;
-}
