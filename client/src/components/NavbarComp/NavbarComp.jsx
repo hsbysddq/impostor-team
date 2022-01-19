@@ -55,7 +55,7 @@ const Navmenu = (props) => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                        <Button href="/login" className="button-login me-4">
+                        <Button href="/login" className="btn-login me-4">
                             <Link to={`/login`}>
                                 Login
                             </Link>

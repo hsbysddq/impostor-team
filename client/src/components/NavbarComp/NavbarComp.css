@@ -22,7 +22,7 @@ body {
   color: #fff;
 }
 
-.button-login,
+.btn-login,
 .btn-register {
   font-family: var(--martel);
   font-size: 14px !important;
