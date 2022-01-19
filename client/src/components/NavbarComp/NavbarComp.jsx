@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button'
 import './NavbarComp.css';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navmenu = (props) => {
     
@@ -25,8 +25,26 @@ const Navmenu = (props) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto nav">
-                    <Nav.Link style={{color:'#fff'}} href="#home">Home</Nav.Link>
-                    <Nav.Link style={{color:'#fff'}} href="#link">About</Nav.Link>
+                    <NavLink to="/"
+                        className={isActive =>
+                            "nav-link" + (!isActive ? " unselected" : "")
+                        }
+                        style={isActive => ({
+                            color: isActive ? "#fff" : "#fff"
+                          })}
+                        >
+                        Home
+                    </NavLink>
+                    <NavLink to="/register"
+                        className={isActive =>
+                            "nav-link" + (!isActive ? " unselected" : "")
+                        }
+                        style={isActive => ({
+                            color: isActive ? "#fff" : "#fff"
+                          })}
+                        >
+                        About
+                    </NavLink>
                 </Nav>
                 </Navbar.Collapse>
                 
@@ -37,10 +55,18 @@ const Navmenu = (props) => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                        <Button href="/login" className="button-login me-4">Login</Button>
-                    <Link>
-                        <Button href="/register" className="btn-register">Register</Button>
-                    </Link>
+                        <Button href="/login" className="button-login me-4">
+                            <Link to={`/login`}>
+                                Login
+                            </Link>
+                        </Button> 
+                   
+                        <Button href="/register" className="btn-register">
+                            <Link to={`/register`}>
+                                Register
+                            </Link>
+                        </Button>
+                    
                 </Form>
                 
             </Container>
