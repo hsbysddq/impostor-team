@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const app = express();
-var cors = require('cors')
+const cors = require('cors');
 
 // CONNECTION DATABASE
 require('./database/models/sequelize');
