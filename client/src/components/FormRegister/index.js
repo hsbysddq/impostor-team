@@ -10,10 +10,18 @@ function FormRegister(props) {
             <div className="container col-auto offset-1">
                 <h1 className="text-center">{props.title}</h1>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicUsername">
+                    {
+                        props.isRegister && (
+                            <Form.Group className="mb-3" controlId="formBasicUsername">
+                                <Form.Label>Username</Form.Label>
+                                <Form.Control type="text" placeholder="Username" onChange={props.onInputUsername} />
+                            </Form.Group>
+                        )
+                    }
+                    {/* <Form.Group className="mb-3" controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" placeholder="Username" onChange={props.onInputUsername} />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
