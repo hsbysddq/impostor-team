@@ -37,9 +37,7 @@ const Navmenu = (props) => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                    <Link to={props.urlLogin}>
-                        <Button href="/login" className="button-login me-4">{props.textLogin}</Button>
-                    </Link>
+                        <Button href="/login" className="button-login me-4">Login</Button>
                     <Link>
                         <Button href="/register" className="btn-register">Register</Button>
                     </Link>
