@@ -74,11 +74,7 @@ exports.login = async (req, res, next) => {
       throw new Error('invalid password');
     }
 
-    return res.status(201).json({
-      message: 'successfully login user',
-      code: 201,
-      user,
-    });
+    createSendToken(user, 201, res);
   } catch (error) {
     next(error);
   }
