@@ -51,6 +51,7 @@ exports.register = async (req, res) => {
       username: req.body.username,
       password: hash,
     });
+    console.log('user:', user);
 
     createSendToken(user, 201, res);
   } catch (err) {
@@ -73,11 +74,7 @@ exports.login = async (req, res, next) => {
       throw new Error('invalid password');
     }
 
-    return res.status(201).json({
-      message: 'successfully login user',
-      code: 201,
-      user,
-    });
+    createSendToken(user, 201, res);
   } catch (error) {
     next(error);
   }
