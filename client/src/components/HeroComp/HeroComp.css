@@ -16,12 +16,12 @@
 
 .hero-tagline h1 {
   font-family: var(--alef);
-  font-weight: 700;
-  font-size: 92px;
+  font-weight: 700 !important;
+  font-size: 92px !important;
   color: #fff;
 }
 
-.btn-lg-primary {
+.hero button.btn-lg-primary {
   font-family: var(--martel);
   width: 172px;
   height: 80px;
