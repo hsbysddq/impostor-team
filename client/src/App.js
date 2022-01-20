@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ForgotPassword from "./container/pages/ForgotPassword";
 import Home from "./container/pages/Home/Home";
@@ -17,7 +18,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        {/* <Route path="/play-game" element={<PlayGame />} /> */}
       </Routes>
     </Router>
   );
