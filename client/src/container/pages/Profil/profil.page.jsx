@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import Foto from '../../../components/FotoProfil/fotoprofil';
 import './profil.css';
 
 const Profil = () => {
@@ -31,10 +32,11 @@ const Profil = () => {
                         <Col xs lg="5" className="tengah">
                             <Card>
                                 <Card.Body>
-                                    <Card.Title>Special title treatment</Card.Title>
-                                    <Card.Text>
-                                    With supporting text below as  natural lead-in to additional content.
-                                    </Card.Text>
+                                    <Card.Title>
+                                        <>
+                                            <Foto />
+                                        </>
+                                    </Card.Title>
                                 </Card.Body>
                             </Card>
                         </Col>

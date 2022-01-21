@@ -28,11 +28,14 @@ p {
 }
 
 .card-body {
-    background-color: #EDF2FB;
-    height: 200px;
+    background-color: white;
 }
 
 .FormControl {
     background-color: #d80b15;
+}
+
+.Foto {
+    align-items: center;
 }
 
