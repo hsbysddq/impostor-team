@@ -28,11 +28,14 @@ p {
 }
 
 .card-body {
-    background-color: #EDF2FB;
-    height: 200px;
+    background-color: white;
 }
 
 body {
     background-color: white !important;
+}
+
+.Foto {
+    align-items: center;
 }
 
