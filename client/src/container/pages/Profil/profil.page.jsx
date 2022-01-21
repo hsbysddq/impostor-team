@@ -27,7 +27,7 @@ const Profil = () => {
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                             />
-                            <Button className="logout" type="submit">Log out</Button>
+                            <Button className="logout" type="submit">Log Out</Button>
                         </Col>
                         <Col xs lg="5" className="tengah">
                             <Card>
