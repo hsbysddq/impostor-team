@@ -16,13 +16,13 @@ const Navmenu = (props) => {
         <>
         <Navbar className="top-0 w-100 pt-5 mb-5" bg="transparent" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand onClick={()=> navigate('/')}>
                 <img
                     src="/assets/img/logo.png"
                     // width="30"
                     // height="30"
                     className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
+                    alt="Impostor logo"
                 /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
