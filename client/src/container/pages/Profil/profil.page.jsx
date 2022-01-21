@@ -35,7 +35,7 @@ const Profil = () => {
                                         <img src="/assets/img/profil.png" alt="" />
                                     </Card.Title>
                                     <Card.Text>
-                                    With supporting text below as a natural lead-in to additional content.
+                                    With supporting text below a a natural lead-in to additional content.
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
