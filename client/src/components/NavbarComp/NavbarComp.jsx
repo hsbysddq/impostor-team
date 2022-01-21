@@ -6,9 +6,11 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button'
 import './NavbarComp.css';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 const Navmenu = (props) => {
+    const navigate = useNavigate();
     
     return(
         <>
@@ -35,7 +37,7 @@ const Navmenu = (props) => {
                         >
                         Home
                     </NavLink>
-                    <NavLink to="/register"
+                    <NavLink to="/about"
                         className={isActive =>
                             "nav-link" + (!isActive ? " unselected" : "")
                         }
@@ -55,17 +57,9 @@ const Navmenu = (props) => {
                     className="me-4 rounded-pill"
                     aria-label="Search"
                     />
-                        <Button href="/login" className="btn-login me-4">
-                            <Link to={`/login`}>
-                                Login
-                            </Link>
-                        </Button> 
+                        <Button href="" className="btn-login me-4" onClick={() => navigate('/login')}>Login</Button> 
                    
-                        <Button href="/register" className="btn-register">
-                            <Link to={`/register`}>
-                                Register
-                            </Link>
-                        </Button>
+                        <Button href="" className="btn-register" onClick={() => navigate('/register')}>Register</Button>
                     
                 </Form>
                 
