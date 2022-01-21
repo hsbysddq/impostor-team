@@ -31,7 +31,9 @@ const Profil = () => {
                         <Col xs lg="5" className="tengah">
                             <Card>
                                 <Card.Body>
-                                    <Card.Title>Special title treatment</Card.Title>
+                                    <Card.Title>
+                                        <img src="/assets/img/profil.png" alt="" />
+                                    </Card.Title>
                                     <Card.Text>
                                     With supporting text below as a natural lead-in to additional content.
                                     </Card.Text>
