@@ -17,15 +17,18 @@ const ForgotPassword = (props) => {
             setError('Email wajib diisi!')
         } else {
             console.log(email);
-            // history("/login")
-            // axios.put('http://localhost:3004/users', { email: email })
-            // .then((res) => {
-            //     setEmail('')
-            //     setAlert('Silakan cek email Anda!')
-            //     setTimeout(() => {
-            //         setEmail('')
-            //     }, 3000);
-            // })
+            setAlert('Silakan cek email Anda!')
+            axios.put(`http://localhost:${process.env.REACT_APP_PORT}/api/forgot-password`, { email: email })
+            .then((res) => {
+                setEmail('')
+                setAlert('Silakan cek email Anda!')
+                setTimeout(() => {
+                    setEmail('')
+                }, 3000);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
         }
     }
 

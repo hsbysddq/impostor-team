@@ -7,6 +7,17 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const [error, setError] = useState('')
+
+    const onInputEmail = (e) => {
+        setEmail(e.target.value)
+        setError('')
+    }
+
+    const onInputPassword = (e) => {
+        setPassword(e.target.value)
+        setError('')
+    }
 
     const handleSubmit = () => {
         const data = {
@@ -20,7 +31,7 @@ function Login() {
             }
         }
 
-        axios.post(`http://localhost:7000/api/login`, data, config)
+        axios.post(`http://localhost:${process.env.REACT_APP_PORT}/api/login`, data, config)
         .then((res) => {
             console.log('res login: ', res);
             if(res.data.status === "success"){
@@ -29,7 +40,8 @@ function Login() {
             }
         })
         .catch((err) => {
-            console.log('error: ', err);
+            setError(err.response.data.message)
+            console.log('error: ', err.response.data.message);
         })
     }
 
@@ -44,8 +56,9 @@ function Login() {
                 title="Login"
                 textButton="Login"
                 isRegister={false}
-                onInputEmail={(e) => setEmail(e.target.value)}
-                onInputPassword={(e) => setPassword(e.target.value)}
+                error={error}
+                onInputEmail={onInputEmail}
+                onInputPassword={onInputPassword}
                 handleSubmit={handleSubmit}
                 textNotes="Lupa password?"
                 textLink="Klik di sini"
