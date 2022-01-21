@@ -11,6 +11,13 @@ function FormRegister(props) {
                 <h1 className="text-center">{props.title}</h1>
                 <Form>
                     {
+                        props.error && (
+                            <div className="alert alert-danger">
+                                <p>{props.error}</p>
+                            </div>
+                        )
+                    }
+                    {
                         props.isRegister && (
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
@@ -18,10 +25,6 @@ function FormRegister(props) {
                             </Form.Group>
                         )
                     }
-                    {/* <Form.Group className="mb-3" controlId="formBasicUsername">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" placeholder="Username" onChange={props.onInputUsername} />
-                    </Form.Group> */}
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
@@ -37,8 +40,8 @@ function FormRegister(props) {
                     </Button>
                 </Form>
                 <div className="row align-items-baseline">
-                    <h3 className="col-6">{props.textNotes}</h3>
-                    <Link to={props.urlLink} className="col-6">{props.textLink}</Link>
+                    <h3 className="col-5">{props.textNotes}</h3>
+                    <Link to={props.urlLink} className="col-7">{props.textLink}</Link>
                 </div>
             </div>
         </div>

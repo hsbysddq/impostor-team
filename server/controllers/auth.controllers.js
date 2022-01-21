@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { User } = require('../database/models');
+const { kirimEmail } = require('../helpers');
 
 //Register
 const signToken = (id) => {
@@ -78,3 +79,64 @@ exports.login = async (req, res, next) => {
     next(error);
   }
 };
+
+
+// RESET PASSWORD
+exports.forgotPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      return res.status(400).json({
+        status: false,
+        message: 'Email tidak terdaftar'
+      })
+    }
+
+    const token = signToken(user.id);
+
+    await user.update(({resetPasswordLink: token}))
+    
+    const templateEmail = {
+      from: 'IMPOSTOR TEAM',
+      to: email,
+      subject: 'Link Reset Password',
+      html: `<p>Silakan klik link di bawah ini untuk reset password Anda! </p> <p>${process.env.CLIENT_URL}/reset-password/${token}</p>`
+    }
+
+    kirimEmail(templateEmail)
+
+    return res.status(200).json({
+      status: true,
+      email: 'Link reset password berhasil terkirim!'
+    })
+  } catch (error) {
+    next(error);
+  }
+}
+
+exports.resetPassword = async (req, res, next) => {
+  try {
+    const { token, password } = req.body
+    console.log('token:', token);
+    console.log('password:', password);
+
+    const user = await User.findOne({
+      where: {
+        resetPasswordLink: token
+      },
+    })
+    console.log(user);
+    if(user){
+      const hash = await bcrypt.hash(password, 12);
+      user.password = hash
+      await user.save()
+      return res.status(201).json({
+        status: true,
+        message: 'password berhasil diganti'
+      })
+    }
+  } catch (error) {
+    next(error)
+  }
+}
