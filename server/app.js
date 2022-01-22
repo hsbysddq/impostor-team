@@ -10,7 +10,8 @@ const cors = require('cors');
 require('./database/models/sequelize');
 
 // IMPORT ROUTER
-const authRouter = require('./routers/auth.controllers');
+const authRouter = require('./routers/auth.routers');
+const userRouter = require('./routers/user.routers');
 
 // MIDDLEWARE
 app.use(bodyParser.json());
@@ -20,6 +21,7 @@ app.use(cors());
 
 // ROUTER
 app.use('/api', authRouter);
+app.use('/api', userRouter);
 
 // ERROR HANDLING
 app.use((err, req, res, next) => {
