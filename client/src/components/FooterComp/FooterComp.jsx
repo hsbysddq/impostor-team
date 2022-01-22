@@ -15,6 +15,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4">
                         <h4>CONTRIBUTOR</h4>
+                        <br />
                         <ListGroup className="bg-transparent pe-5" variant="flush">
                             <ListGroup.Item action href="#" className="">Bogiant</ListGroup.Item>
                             <ListGroup.Item action href="#">Fikri</ListGroup.Item>
@@ -25,12 +26,15 @@ const Footer = () => {
                     </div>
                     <div className="col-md-4">
                         <h4>Newsletter</h4>
+                        <br />
                         <Form>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Control size="lg" type="email" placeholder="name@example.com" />
                                 <Form.Label>Enter email address</Form.Label>
+                                <Form.Control size="lg" type="email" placeholder="name@example.com" />
                             </Form.Group>
                             <Button className="px-5 py-3" type="submit">SUBSCRIBE</Button>
+                            <br />
+                            <br />
                             <p>We never spam you!</p>
                         </Form>
                     </div>
