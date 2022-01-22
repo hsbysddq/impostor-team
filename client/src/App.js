@@ -8,6 +8,8 @@ import ResetPassword from "./container/pages/ResetPassword";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeApp from "./container/pages/HomeApp/HomeApp";
 import About from "./container/pages/About/About";
+import EditProfil from "./container/pages/EditProfil/EditProfil";
+import HomePage from "./container/pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -17,9 +19,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Route>
+        <Route path="/homepage" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profil" element={<Profil />} />
+        <Route path="/edit-profil" element={<EditProfil />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>

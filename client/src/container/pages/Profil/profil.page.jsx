@@ -11,7 +11,7 @@ import './profil.css';
 const Profil = () => {
     return(
         <div className="main">
-            <div className="container">
+            <div className="container pt-5 ">
                 <Navbar.Brand href="/" className="navbar-brand">
                     <img
                         src="/assets/img/logo-black.png"
@@ -19,7 +19,7 @@ const Profil = () => {
                         alt="React Bootstrap logo"
                     />
                 </Navbar.Brand>
-                <div className="wrapper">
+                <div className="wrapper pt-5">
                     <Row>
                         <Col xs lg="3" className="kanan">
                             <img
@@ -45,7 +45,7 @@ const Profil = () => {
                                     <FormControl
                                     type="search"
                                     placeholder="Search Username"
-                                    className="me-4 rounded-pill"
+                                    className="ms-5 rounded-pill"
                                     aria-label="Search"
                                     />
                                 </Form>
