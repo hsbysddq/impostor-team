@@ -1,19 +1,20 @@
 import React from "react";
 import AboutCompnent from "../../../components/AboutComp/AboutComp";
 import Footer from "../../../components/FooterComp/FooterComp";
-import Hero from "../../../components/HeroComp/HeroComp";
 import ListGame from "../../../components/ListGameComp/ListGameComp";
-import Navmenu from '../../../components/NavbarComp/NavbarComp';
+import Main from '../../../components/MainComp/MainComp';
+import './home.css';
 
 const Home = () => {
     return(
-        <>
-            <Navmenu />
-            <Hero />
-            <ListGame />
-            <AboutCompnent />
-            <Footer />
-        </>
+        <div className="home">
+            <>
+                <Main />
+                <ListGame />
+                <AboutCompnent />
+                <Footer />
+            </>
+        </div>
     )
 }
 

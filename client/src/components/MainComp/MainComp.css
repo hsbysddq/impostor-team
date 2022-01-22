@@ -1,0 +1,24 @@
+.main-landing {
+  background-image: url('../../../public/assets/img/bg-main.png') !important;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 790px;
+}
+
+.hero-tagline h1 {
+  font-family: var(--alef);
+  font-weight: 700;
+  font-size: 92px;
+  color: #fff;
+}
+
+.btn-lg-primary {
+  font-family: var(--martel);
+  width: 172px;
+  height: 80px;
+  background: #f4d25b !important;
+  border-radius: 20px;
+  border: none;
+  margin-top: 50px;
+}
