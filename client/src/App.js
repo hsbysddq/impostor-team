@@ -5,6 +5,7 @@ import Login from "./container/pages/Login";
 import Profil from "./container/pages/Profil/profil.page";
 import Register from "./container/pages/Register";
 import ResetPassword from "./container/pages/ResetPassword";
+import Game from "./container/pages/Game/Game";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeApp from "./container/pages/HomeApp/HomeApp";
 import About from "./container/pages/About/About";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/edit-profil" element={<EditProfil />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/rock-papper-scissors" element={<Game />} />
       </Routes>
     </Router>
   );

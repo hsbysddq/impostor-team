@@ -1,11 +1,11 @@
 import React from "react";
 import { Row, Col } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Foto from '../../../components/FotoProfil/fotoprofil';
+import CardUser from '../../../components/CardUser/cardUser';
 import './profil.css';
 
 const Profil = () => {
@@ -27,7 +27,7 @@ const Profil = () => {
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                             />
-                            <Button className="logout" type="submit">Log Out</Button>
+                            {/* <Button className="logout" type="submit">Log Out</Button> */}
                         </Col>
                         <Col xs lg="5" className="tengah">
                             <Card>
@@ -49,8 +49,9 @@ const Profil = () => {
                                     aria-label="Search"
                                     />
                                 </Form>
-
-                                
+                                <>
+                                    <CardUser />
+                                </>
                             </Col>
                     </Row>
                 </div>

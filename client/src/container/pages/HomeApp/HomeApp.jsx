@@ -8,12 +8,12 @@ import Home from '../Home/Home';
 const HomeApp = () => {
   return (
       <>
-      <Navmenu />
+      {/* <Navmenu /> */}
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
       </>
   );
 };

@@ -7,13 +7,6 @@
   z-index: 1;
 }
 
-.hero {
-  background-color: #5956e9;
-  height: 100vh;
-  /* min-height: 900px; */
-  width: 100%;
-}
-
 .hero-tagline h1 {
   font-family: var(--alef);
   font-weight: 700 !important;
