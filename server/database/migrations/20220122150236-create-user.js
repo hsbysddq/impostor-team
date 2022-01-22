@@ -4,14 +4,19 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('User', {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
+        type: Sequelize.UUID,
         allowNull: false,
-        autoIncrement: true,
+        primaryKey: true,
+        defaultValue: Sequelize.UUIDV4,
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       username: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       email: {
         type: Sequelize.STRING,
@@ -21,6 +26,17 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      avatar: {
+        type: Sequelize.STRING,
+        defaultValue:
+          'https://res.cloudinary.com/twitter-clone-media/image/upload/v1597737557/user_wt3nrc.png',
+      },
+      bio: {
+        type: Sequelize.STRING,
+      },
+      resetPasswordLink: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         type: Sequelize.DATE,

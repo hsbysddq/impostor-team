@@ -1,4 +1,4 @@
-const { Op } = require('sequelize/dist');
+const { Op } = require('sequelize');
 const { User } = require('../database/models');
 
 // GET ALL USER

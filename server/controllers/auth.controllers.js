@@ -47,11 +47,11 @@ exports.register = async (req, res) => {
 
     const hash = await bcrypt.hash(req.body.password, 12);
     const user = await User.create({
+      name: req.body.name,
       email: req.body.email,
       username: req.body.username,
       password: hash,
     });
-    console.log('user:', user);
 
     createSendToken(user, 201, res);
   } catch (err) {
@@ -80,7 +80,6 @@ exports.login = async (req, res, next) => {
   }
 };
 
-
 // RESET PASSWORD
 exports.forgotPassword = async (req, res, next) => {
   try {
@@ -89,54 +88,54 @@ exports.forgotPassword = async (req, res, next) => {
     if (!user) {
       return res.status(400).json({
         status: false,
-        message: 'Email tidak terdaftar'
-      })
+        message: 'Email tidak terdaftar',
+      });
     }
 
     const token = signToken(user.id);
 
-    await user.update(({resetPasswordLink: token}))
-    
+    await user.update({ resetPasswordLink: token });
+
     const templateEmail = {
       from: 'IMPOSTOR TEAM',
       to: email,
       subject: 'Link Reset Password',
-      html: `<p>Silakan klik link di bawah ini untuk reset password Anda! </p> <p>${process.env.CLIENT_URL}/reset-password/${token}</p>`
-    }
+      html: `<p>Silakan klik link di bawah ini untuk reset password Anda! </p> <p>${process.env.CLIENT_URL}/reset-password/${token}</p>`,
+    };
 
-    kirimEmail(templateEmail)
+    kirimEmail(templateEmail);
 
     return res.status(200).json({
       status: true,
-      email: 'Link reset password berhasil terkirim!'
-    })
+      email: 'Link reset password berhasil terkirim!',
+    });
   } catch (error) {
     next(error);
   }
-}
+};
 
 exports.resetPassword = async (req, res, next) => {
   try {
-    const { token, password } = req.body
+    const { token, password } = req.body;
     console.log('token:', token);
     console.log('password:', password);
 
     const user = await User.findOne({
       where: {
-        resetPasswordLink: token
+        resetPasswordLink: token,
       },
-    })
+    });
     console.log(user);
-    if(user){
+    if (user) {
       const hash = await bcrypt.hash(password, 12);
-      user.password = hash
-      await user.save()
+      user.password = hash;
+      await user.save();
       return res.status(201).json({
         status: true,
-        message: 'password berhasil diganti'
-      })
+        message: 'password berhasil diganti',
+      });
     }
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
