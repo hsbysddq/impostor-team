@@ -2,6 +2,7 @@ import React from "react";
 import './MainComp.css';
 import {useNavigate} from 'react-router-dom';
 import Hero from "../HeroComp/HeroComp";
+import Navmenu from "../NavbarComp/NavbarComp";
 
 const Main = (props) => {
 
@@ -11,6 +12,7 @@ const Main = (props) => {
         <div className="landing">
             <div className="main-landing">
                 <>
+                    <Navmenu />
                     <Hero />
                 </>
             </div>
