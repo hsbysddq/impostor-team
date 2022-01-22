@@ -1,5 +1,5 @@
 .wrapper {
-    margin-top: 3%;
+    margin-top: 6%;
 }
 
 img {
@@ -15,10 +15,10 @@ p {
     font-weight: 800;
 }
 
-.d-flex {
+/* .d-flex {
     width: 70%;
     margin-left: 25%;
-}
+} */
 
 /* .container button {
     margin-top: 415px;
