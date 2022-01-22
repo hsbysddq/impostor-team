@@ -1,8 +1,7 @@
 require('dotenv').config();
 
 const { DB_NAME, DB_PORT, DB_USER, DB_PASS, DB_HOST } = process.env;
-
-const cfg = {
+module.exports = {
   development: {
     username: DB_USER,
     password: DB_PASS,
@@ -28,5 +27,3 @@ const cfg = {
     dialect: 'postgres',
   },
 };
-
-module.exports = cfg;
