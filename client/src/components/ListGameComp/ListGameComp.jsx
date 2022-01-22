@@ -47,10 +47,8 @@ const ListGame = () => {
                 <GameItem img='./assets/img/game3.png' title='Game 6'/>
                 <GameItem img='./assets/img/game4.png' title='Game 7'/>
                 <GameItem img='./assets/img/game2.png' title='Game 8'/>
-            </Row>
-            
+            </Row> 
         </div>
-        {/* <img src="./assets/img/wave2.png" alt="" className="img-wave" /> */}
         </section>
         </>
     )
