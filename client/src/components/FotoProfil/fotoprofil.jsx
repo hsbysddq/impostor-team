@@ -6,16 +6,16 @@ const Foto = () => {
     return(
 
         <div className="foto-profil">
-            <p>Halo Hasby</p>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Body>
-                        <img src="/assets/img/kelinci.jpg" alt="" />
-                    </Card.Body>
-                </Card>
-            <div className="biodata">
-                <p className="data-diri">Data diri</p>
-                <p className="username">Username : inidatauser <a href="">Ubah</a></p>
-                <p className="email">Email : inidataemail <a href="">Ubah</a></p>
+            <Card className="mx-5 mb-4">
+                <Card.Body  style={{ width: '200px' }}>
+                    <img src="/assets/img/kelinci.jpg" alt="" className="mx-3 w-75" />
+                </Card.Body>
+            </Card>
+            <div className="data">
+                <p className="data-diri">Data Profile</p>
+                <p className="username">First Name : inidatauser</p>
+                <p className="email">Last Name : inidataemail</p>
+                <p className="email">Gender : inidataemail</p>
             </div>
         </div>
 
