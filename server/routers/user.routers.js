@@ -10,7 +10,7 @@ const {
 const { isAuthentication } = require('../middlewares/auth.middlewares');
 
 router.get('/user', isAuthentication, searchUser);
-router.get('/users', isAuthentication, getAllUser);
+router.get('/users', getAllUser);
 router.put('/users', isAuthentication, updateUser);
 router.get('/user/:username', isAuthentication, findOne);
 router.get('/myProfile', isAuthentication, myProfile);

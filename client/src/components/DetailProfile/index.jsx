@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import "./fotoprofil.css";
+import "./detailProfile.css";
 
-const Foto = async () => {
+const Foto = (props) => {
   return (
     <div className="foto-profil">
       <Card className="mx-5 mb-4">
@@ -12,10 +12,9 @@ const Foto = async () => {
       </Card>
       <div className="data">
         <p className="data-diri">Data Profile</p>
-        <p className="username">Name : inidatauser</p>
-        <p className="username">Username : inidatauser</p>
-        <p className="email">Email : inidataemail</p>
-        <p className="email">Bio : inidataemail</p>
+        <p className="username">Username : {props.username}</p>
+        <p className="username">Full Name : {props.name}</p>
+        <p className="email">Bio : {props.bio}</p>
       </div>
     </div>
   );
