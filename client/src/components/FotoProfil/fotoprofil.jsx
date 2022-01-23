@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import "./fotoprofil.css";
 
-const Foto = () => {
+const Foto = async () => {
   return (
     <div className="foto-profil">
       <Card className="mx-5 mb-4">
