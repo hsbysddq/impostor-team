@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
-import { Navbar, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Foto from '../../../components/DetailProfile';
@@ -32,6 +33,8 @@ const Profil = () => {
         console.log('user:', user);
     }
 
+    const navigate = useNavigate();
+
     return(
         <div className="main row align-items-center bg vh-100">
             <div className="container col-auto offset-1">
@@ -48,6 +51,7 @@ const Profil = () => {
                                 bio={bio}
                             />
                         </div>
+                        <Button onClick={()=> navigate('/homepage/edit-profil')}>Update Data</Button>
                     </div>
                     <div>
                         <Form className="d-flex" style={{ width: '320px' }}>

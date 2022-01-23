@@ -22,12 +22,12 @@ function App() {
         </Route>
         <Route path="/homepage" element={<HomePage />}>
           <Route path="about" element={<About />} />
-          <Route path="profil" element={<Profil />} />
+          <Route path="profil" element={<Profile />} />
+          <Route path="edit-profil" element={<EditProfil />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profil" element={<EditProfil />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="rock-papper-scissors" element={<Game />} />
