@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import './cardUser.css'
+import './listUser.css'
 
 const CardUser = (props) => {
     return(
@@ -12,12 +12,10 @@ const CardUser = (props) => {
                         {
                             props.users.map(user => {
                                 return (
-                                    // <div className="px-4 py-3">
-                                        <div className="card d-flex flex-row align-items-center p-3 text-center" style={{ borderRadius: '10px' }}>
-                                            <FontAwesomeIcon icon={faUser} />
-                                            <div className="ps-5">{user.name}</div>
-                                        </div>
-                                    // </div>
+                                    <div key={user.id} onClick={() => props.handleDetailUser(user)} className="card d-flex flex-row align-items-center p-3 text-center" style={{ borderRadius: '10px' }}>
+                                        <FontAwesomeIcon icon={faUser} />
+                                        <div className="ps-5">{user.username}</div>
+                                    </div>
                                 )
                             })
                         }
