@@ -5,15 +5,8 @@ import { useNavigate } from 'react-router';
 import FormRegister from "../../../components/FormRegister";
 
 const EditProfile = () => {
-<<<<<<< HEAD
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-=======
   const myProfile = JSON.parse(localStorage.getItem('data'))
   const data  = myProfile.data.user
->>>>>>> def31b49357db59cd487c769485e125e7484039e
 
   const [username, setUsername] = useState(data.username);
   const [fullName, setFullName] = useState("");
@@ -40,10 +33,6 @@ const EditProfile = () => {
         console.log("error: ", err);
       });
   };
-<<<<<<< HEAD
-
-=======
->>>>>>> def31b49357db59cd487c769485e125e7484039e
 
   return (
     <>
