@@ -45,7 +45,8 @@ function Login(data) {
         console.log(res.data.data.user.username);
         console.log(token);
         if (res.data.status === "success") {
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("data", JSON.stringify(res.data));
+          // localStorage.setItem("userId", res.data.data.user.id);
           setRedirect(true);
         }
       })
