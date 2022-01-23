@@ -15,6 +15,66 @@ exports.getAllUser = async (req, res, next) => {
   }
 };
 
+//get user profile
+exports.findOne = (req, res) => {
+  User.findOne({
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
+    where: {
+      username: req.params.username,
+    },
+  })
+    .then((data) => {
+      if (!data) {
+        return res.status(404).json({
+          result: 'failed',
+          message: 'user not registered',
+        });
+      }
+      res.status(200).json({
+        result: 'success',
+        message: 'successfully retrieve data',
+        data: data,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        result: 'failed',
+        message: 'some error occured while retrieving game',
+        error: err.message,
+      });
+    });
+};
+
+// GET MY PROFILE
+exports.myProfile = async (req, res, next) => {
+  const userId = req.user.id;
+  User.findOne({
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
+    where: {
+      id: userId,
+    },
+  })
+    .then((data) => {
+      if (!data) {
+        return res.status(404).json({
+          result: 'failed',
+          message: 'user not registered',
+        });
+      }
+      res.status(200).json({
+        result: 'success',
+        message: 'successfully retrieve data',
+        data: data,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        result: 'failed',
+        message: 'some error occured while retrieving game',
+        error: err.message,
+      });
+    });
+};
 // SEARCH USER
 exports.searchUser = async (req, res, next) => {
   try {
