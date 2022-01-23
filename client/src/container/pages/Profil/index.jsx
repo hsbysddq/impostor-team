@@ -11,11 +11,13 @@ const Profil = () => {
     const [users, setUsers] = useState('')
 
     useEffect(() => {
-        axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/register`)
+        axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/users`)
         .then((result) => {
             setUsers(result.data)
+            console.log(setUsers);
         })
     }, [])
+
 
     return(
         <div className="main row align-items-center bg vh-100">
