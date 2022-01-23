@@ -1,13 +1,9 @@
 import React from "react";
 import './MainComp.css';
-import {useNavigate} from 'react-router-dom';
 import Hero from "../HeroComp/HeroComp";
 import Navmenu from "../NavbarComp/NavbarComp";
 
 const Main = (props) => {
-
-    const navigate = useNavigate();
-    
     return(
         <div className="landing">
             <div className="main-landing">
