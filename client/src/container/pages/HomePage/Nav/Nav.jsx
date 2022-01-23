@@ -8,6 +8,7 @@ const NavHomePage = () => {
 
     const logout = () => {
         sessionStorage.clear();
+        localStorage.removeItem("data")
         navigate('/')
     }
     

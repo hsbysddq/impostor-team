@@ -65,6 +65,7 @@ function Login(data) {
         title="Login"
         textButton="Login"
         isRegister={false}
+        isAuth={true}
         error={error}
         onInputEmail={onInputEmail}
         onInputPassword={onInputPassword}
