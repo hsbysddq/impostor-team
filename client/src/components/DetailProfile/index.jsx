@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
+import {Card, Button} from "react-bootstrap";
 import "./detailProfile.css";
 
 const Foto = (props) => {
@@ -16,6 +16,13 @@ const Foto = (props) => {
         <p className="username">Full Name : {props.name}</p>
         <p className="email">Bio : {props.bio}</p>
       </div>
+      {
+        props.myProfile && (
+          <Button className="w-100" onClick={props.onClick} >
+            Update
+          </Button>
+        )
+      }
     </div>
   );
 };

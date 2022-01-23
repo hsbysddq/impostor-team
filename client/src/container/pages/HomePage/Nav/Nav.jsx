@@ -97,7 +97,7 @@ const NavHomePage = () => {
       </Nav>
       <Navbar.Collapse className='justify-content-end me-4'>
         <Navbar.Text>
-            Signed in as: <NavLink to='/profil'
+            Signed in as: <NavLink to='/profile'
             className={isActive =>
                 "nav-link" + (!isActive ? " unselected" : "")
             }
