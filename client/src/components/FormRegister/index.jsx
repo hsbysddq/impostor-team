@@ -21,20 +21,40 @@ function FormRegister(props) {
                         props.isRegister && (
                             <Form.Group className="mb-3" controlId="formBasicUsername">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" placeholder="Username" onChange={props.onInputUsername} />
+                                <Form.Control type="text" value={props.username} placeholder="Username" onChange={props.onInputUsername} />
                             </Form.Group>
                         )
                     }
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email" onChange={props.onInputEmail} />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={props.onInputPassword} />
-                    </Form.Group>
+                    
+                    {
+                        props.isAuth && (
+                            <div>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email" value={props.email} placeholder="Email" onChange={props.onInputEmail} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password" value={props.password} placeholder="Password" onChange={props.onInputPassword} />
+                                </Form.Group>
+                            </div>
+                        )
+                    }
+                    {
+                        props.isEdit && (
+                            <div>
+                                <Form.Group className="mb-3" controlId="formBasicFullName">
+                                    <Form.Label>FullName</Form.Label>
+                                    <Form.Control type="text" value={props.fullName} placeholder="FullName" onChange={props.onInputFullName} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicBio">
+                                    <Form.Label>Bio</Form.Label>
+                                    <Form.Control type="text" value={props.bio} placeholder="Bio" onChange={props.onInputBio} />
+                                </Form.Group>
+                            </div>
+                        )
+                    }
                     <Button variant="primary" onClick={props.handleSubmit} className="mb-3">
                         {props.textButton}
                     </Button>

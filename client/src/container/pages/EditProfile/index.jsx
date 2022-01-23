@@ -1,34 +1,36 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from 'react-router';
 import FormRegister from "../../../components/FormRegister";
 
 const EditProfile = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const data  = myProfile.data.user
 
-  const onInputEmail = (e) => {
-    setEmail(e.target.value);
-    setError("");
-  };
+  const [username, setUsername] = useState(data.username);
+  const [fullName, setFullName] = useState("");
+  const [bio, setBio] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const data = {
+    console.log('diklik');
+    const newData = {
       username,
-      email,
-      password,
+      name: fullName,
+      bio,
+      id: data.id
     };
-    console.log("data: ", data);
+    console.log("data: ", newData);
     axios
-      .post(`http://localhost:${process.env.REACT_APP_PORT}/api/register`, data)
+      .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/${newData.id}`, newData)
       .then((res) => {
-        console.log("success");
+        console.log("res success:", res);
+        navigate('/profile')
       })
       .catch((err) => {
-        setError(err.response.data);
-        console.log("error: ", err.response.data);
+        console.log("error: ", err);
       });
   };
 
@@ -38,14 +40,18 @@ const EditProfile = () => {
         title="Edit Profile"
         textButton="Update"
         isRegister={true}
-        error={error}
+        isAuth={false}
+        isEdit={true}
         onInputUsername={(e) => setUsername(e.target.value)}
-        onInputEmail={onInputEmail}
-        onInputPassword={(e) => setPassword(e.target.value)}
+        onInputFullName={(e) => setFullName(e.target.value)}
+        onInputBio={(e) => setBio(e.target.value)}
         handleSubmit={handleSubmit}
-        textNotes=""
-        textLink=""
-        urlLink=""
+        username={username}
+        fullName={fullName}
+        bio={bio}
+        textNotes="Back To Profile?"
+        textLink="Klick Here"
+        urlLink="/profile"
       />
     </>
   );

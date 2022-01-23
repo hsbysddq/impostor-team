@@ -24,18 +24,24 @@ const Profil = () => {
     }, [])
 
     const handleDetailUser = (user) => {
-        const myProfile = JSON.parse(localStorage.getItem('data'))
         const username = user.username
-        console.log(myProfile.data.user.username);
-        console.log(username);
-        if(myProfile.data.user.username === username){
-            setMyProfile(true)
-        } else {
-            setMyProfile(false)
-        }
-        setUsername(user.username)
-        setName(user.name)
-        setBio(user.bio)
+        axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/user/${username}`)
+        .then((res) => {
+            console.log("res detail:", res.data);
+            const myProfile = JSON.parse(localStorage.getItem('data'))
+            const id = user.id
+            if(myProfile.data.user.id === id){
+                setMyProfile(true)
+            } else {
+                setMyProfile(false)
+            }
+            setUsername(res.data.data.username)
+            setName(res.data.data.name)
+            setBio(res.data.data.bio)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
     const handleProfile = () => {
