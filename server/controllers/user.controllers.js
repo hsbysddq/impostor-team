@@ -16,13 +16,12 @@ exports.getAllUser = async (req, res, next) => {
 };
 
 //get user profile
-const findOne = (req, res) => {
+exports.findOne = (req, res) => {
+  const userId = req.user.id;
   User.findOne({
-    attributes:[
-      'id','name','email','username','total_score'
-    ],
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
     where: {
-      username: req.params.username,
+      id: userId,
     },
   })
     .then((data) => {
