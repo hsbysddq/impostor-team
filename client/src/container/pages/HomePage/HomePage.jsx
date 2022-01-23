@@ -1,10 +1,33 @@
 import React from 'react';
+import { Navigate, Outlet } from 'react-router';
+import Footer from '../../../components/FooterComp/FooterComp';
+import ListGameHomePage from './listGameHomePage/ListGameHomePage';
+import NavHomePage from './Nav/Nav';
 
 const HomePage = () => {
+
+    if (!sessionStorage.getItem("token")) {
+        return <Navigate to='/' ></Navigate>
+    }
+
   return (
+      <>
       <div>
-          <h1>Home Page</h1>
+        <div>
+            <NavHomePage />
+        </div>
+
+        <Outlet />
+
+        <div>
+            <ListGameHomePage />
+        </div>
+        <div>
+            <Footer />
+        </div>
       </div>
+
+      </>
   );
 };
 

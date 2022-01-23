@@ -20,14 +20,17 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Route>
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/homepage" element={<HomePage />}>
+          <Route path="about" element={<About />} />
+          <Route path="profil" element={<Profil />} />
+        </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profil" element={<Profil />} />
         <Route path="/edit-profil" element={<EditProfil />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
-        <Route path="/rock-papper-scissors" element={<Game />} />
+        <Route path="rock-papper-scissors" element={<Game />} />
       </Routes>
     </Router>
   );
