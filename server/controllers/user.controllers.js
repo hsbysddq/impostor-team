@@ -45,36 +45,6 @@ exports.findOne = (req, res) => {
     });
 };
 
-// GET MY PROFILE
-exports.myProfile = async (req, res, next) => {
-  const userId = req.user.id;
-  User.findOne({
-    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
-    where: {
-      id: userId,
-    },
-  })
-    .then((data) => {
-      if (!data) {
-        return res.status(404).json({
-          result: 'failed',
-          message: 'user not registered',
-        });
-      }
-      res.status(200).json({
-        result: 'success',
-        message: 'successfully retrieve data',
-        data: data,
-      });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        result: 'failed',
-        message: 'some error occured while retrieving game',
-        error: err.message,
-      });
-    });
-};
 // SEARCH USER
 exports.searchUser = async (req, res, next) => {
   try {
@@ -100,13 +70,10 @@ exports.searchUser = async (req, res, next) => {
 // UPDATE USER PROFILE
 exports.updateUser = async (req, res, next) => {
   try {
-    const userId = req.user.id;
-    const { username } = req.body;
-    if (!userId) {
-      throw new Error('unauthorized');
-    }
+    const { id } = req.params;
+    const { username, bio, name } = req.body;
 
-    const user = await User.update({ username }, { where: { id: userId } });
+    const user = await User.update({ username, bio, name }, { where: { id } });
     if (!user) {
       throw new Error('user not found');
     }
