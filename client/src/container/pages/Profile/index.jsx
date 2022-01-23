@@ -21,7 +21,7 @@ const Profil = () => {
             console.log('result:', result.data);
         })
     }, [])
-
+    
     // const token = JSON.parse(localStorage.getItem('token'))
     const token = localStorage.getItem('token')
     console.log('token:', token);
@@ -51,7 +51,7 @@ const Profil = () => {
                                 bio={bio}
                             />
                         </div>
-                        <Button onClick={()=> navigate('/homepage/edit-profil')}>Update Data</Button>
+                        <Button onClick={()=> navigate(`/homepage/edit-profil/${username}`)}>Update Data</Button>
                     </div>
                     <div>
                         <Form className="d-flex" style={{ width: '320px' }}>
