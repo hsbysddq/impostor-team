@@ -1,24 +1,29 @@
-import React from "react";
-import Card from 'react-bootstrap/Card';
+import React, { Fragment } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import './cardUser.css'
 
-const CardUser = () => {
+const CardUser = (props) => {
     return(
-        // <div className="cardUser">
-        //     <Card className="userProfil" style={{ width: '14rem', height: '5rem' }}>
-        //         <Card.Body>
-        //             <p>Arman</p>
-        //         </Card.Body>
-        //     </Card>
-        // </div>
-
         <div className="px-4 py-3">
-            <div className="card d-flex flex-row align-items-center p-3 text-center" style={{ borderRadius: '10px' }}>
-                <FontAwesomeIcon icon={faUser} />
-                <div className="ps-5">Name User</div>
-            </div>
+            {
+                props.users.length > 0 ? (
+                    <Fragment>
+                        {
+                            props.users.map(user => {
+                                return (
+                                    // <div className="px-4 py-3">
+                                        <div className="card d-flex flex-row align-items-center p-3 text-center" style={{ borderRadius: '10px' }}>
+                                            <FontAwesomeIcon icon={faUser} />
+                                            <div className="ps-5">{user.name}</div>
+                                        </div>
+                                    // </div>
+                                )
+                            })
+                        }
+                    </Fragment>
+                ) : null
+            }
         </div>
     )
 }
