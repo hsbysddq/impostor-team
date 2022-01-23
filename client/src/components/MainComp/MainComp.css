@@ -1,5 +1,5 @@
 .main-landing {
-  background-image: url('../../../public/assets/img/bg-main.png') !important;
+  background-image: url("../../../public/assets/img/bg-main.png") !important;
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
@@ -15,10 +15,10 @@
 
 .btn-lg-primary {
   font-family: var(--martel);
-  width: 172px;
-  height: 80px;
+  width: 172px !important;
+  height: 80px !important;
   background: #f4d25b !important;
-  border-radius: 20px;
+  border-radius: 20px !important;
   border: none;
   margin-top: 50px;
 }
