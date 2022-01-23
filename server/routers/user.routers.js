@@ -11,6 +11,6 @@ const { isAuthentication } = require('../middlewares/auth.middlewares');
 router.get('/user', isAuthentication, searchUser);
 router.get('/users', isAuthentication, getAllUser);
 router.put('/users', isAuthentication, updateUser);
-router.get('/myProfile', isAuthentication, findOne);
+router.get('/user/:username', isAuthentication, findOne);
 
 module.exports = router;
