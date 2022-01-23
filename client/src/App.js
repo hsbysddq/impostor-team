@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ForgotPassword from "./container/pages/ForgotPassword";
 import Home from "./container/pages/Home/Home";
 import Login from "./container/pages/Login";
-import Profil from "./container/pages/Profil/profil.page";
+import Profil from "./container/pages/Profil";
 import Register from "./container/pages/Register";
 import ResetPassword from "./container/pages/ResetPassword";
 import Game from "./container/pages/Game/Game";
