@@ -5,6 +5,9 @@ import Header from "../../../components/Game/Header";
 import Wrapper from "../../../components/Game/Wrapper";
 import Table from "../../../components/Game/Table";
 import Rules from "../../../components/Game/Rules";
+import { FaChevronLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export const ScoreContext = createContext();
 
@@ -24,6 +27,11 @@ const AppStyled = styled.main`
 
 function Game() {
   const [score, setScore] = useState(0);
+  let history = useNavigate();
+
+  const onClickSubmit = () => {
+    history("/");
+  };
   return (
     <ScoreContext.Provider
       value={{
@@ -32,6 +40,9 @@ function Game() {
       }}
     >
       <AppStyled>
+        <Button onClick={onClickSubmit}>
+          <FaChevronLeft />
+        </Button>
         <Wrapper>
           <div className="app-content">
             <Header />
