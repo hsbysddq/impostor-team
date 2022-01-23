@@ -12,7 +12,7 @@ const CardUser = (props) => {
                         {
                             props.users.map(user => {
                                 return (
-                                    <div key={user.id} onClick={() => props.handleDetailUser(user)} className="card d-flex flex-row align-items-center p-3 text-center" style={{ borderRadius: '10px' }}>
+                                    <div key={user.id} onClick={() => props.handleDetailUser(user)} className="card d-flex flex-row align-items-center p-3 text-center mt-3" style={{ borderRadius: '10px' }}>
                                         <FontAwesomeIcon icon={faUser} />
                                         <div className="ps-5">{user.username}</div>
                                     </div>

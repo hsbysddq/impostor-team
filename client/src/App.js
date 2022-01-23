@@ -9,7 +9,7 @@ import Game from "./container/pages/Game/Game";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeApp from "./container/pages/HomeApp/HomeApp";
 import About from "./container/pages/About/About";
-import EditProfil from "./container/pages/EditProfil/EditProfil";
+import EditProfile from "./container/pages/EditProfile";
 import HomePage from "./container/pages/HomePage/HomePage";
 
 function App() {
@@ -22,12 +22,12 @@ function App() {
         </Route>
         <Route path="/homepage" element={<HomePage />}>
           <Route path="about" element={<About />} />
-          <Route path="profil" element={<Profil />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profil" element={<EditProfil />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="rock-papper-scissors" element={<Game />} />
