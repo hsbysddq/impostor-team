@@ -42,8 +42,6 @@ function Login() {
         const token = res.data.token;
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("username", res.data.data.data.username);
-        // console.log(res.data);
-        // console.log(token);
         const userToken = sessionStorage.getItem("token");
         if (userToken) {
           localStorage.setItem("data", JSON.stringify(res.data));
@@ -52,8 +50,8 @@ function Login() {
         }
       })
       .catch((err) => {
-        setError(err);
-        console.log("error: ", err);
+        setError(err.response.data.message);
+        console.log("err: ", err.response.data.message);
       });
   };
 
