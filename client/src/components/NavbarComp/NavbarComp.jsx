@@ -182,18 +182,14 @@ const Navmenu = (props) => {
                 
                 <Form className="d-flex">
                     <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-4 rounded-pill"
-                    aria-label="Search"
+                        type="search"
+                        placeholder="Search"
+                        className="me-4 rounded-pill"
+                        aria-label="Search"
                     />
-                                <Button href="" className="btn-login me-4" onClick={() => navigate('/login')}>Login</Button> 
-                           
-                                <Button href="" className="btn-register" onClick={() => navigate('/register')}>Register</Button>
-                               
-                    
+                    <Button href="" className="btn-login me-4" onClick={() => navigate('/login')}>Login</Button> 
+                    <Button href="" className="btn-register" onClick={() => navigate('/register')}>Register</Button>
                 </Form>
-                
             </Container>
         </Navbar>
         </>

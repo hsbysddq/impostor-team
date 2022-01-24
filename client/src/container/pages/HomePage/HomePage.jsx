@@ -5,8 +5,9 @@ import ListGameHomePage from './listGameHomePage/ListGameHomePage';
 import NavHomePage from './Nav/Nav';
 
 const HomePage = () => {
+    const token  = sessionStorage.getItem("token");
 
-    if (!sessionStorage.getItem("token")) {
+    if (!token) {
         return <Navigate to='/' ></Navigate>
     }
 

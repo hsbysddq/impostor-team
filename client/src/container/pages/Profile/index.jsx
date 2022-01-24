@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button, Navbar, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate} from 'react-router';
@@ -15,13 +15,24 @@ const Profil = () => {
     const [bio, setBio] = useState('-')
     const [myProfile, setMyProfile] = useState(false)
 
+    const navigate = useNavigate();
+
     useEffect(() => {
+        const token  = sessionStorage.getItem("token");
+        if (!token) {
+            return navigate('/')
+        }
         axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/users`)
         .then((result) => {
             setUsers(result.data.user)
             console.log('result:', result.data);
         })
-    }, [])
+    }, [navigate])
+
+    // const token  = sessionStorage.getItem("token");
+    // if (!token) {
+    //     return navigate('/')
+    // }
 
     const handleDetailUser = (user) => {
         const username = user.username
@@ -30,7 +41,7 @@ const Profil = () => {
             console.log("res detail:", res.data);
             const myProfile = JSON.parse(localStorage.getItem('data'))
             const id = user.id
-            if(myProfile.data.user.id === id){
+            if(myProfile.data.data.id === id){
                 setMyProfile(true)
             } else {
                 setMyProfile(false)
@@ -48,14 +59,12 @@ const Profil = () => {
         const myProfile = JSON.parse(localStorage.getItem('data'))
         if(myProfile) {
             console.log('myProfile:', myProfile);
-            setUsername(myProfile.data.user.username)
-            setName(myProfile.data.user.name)
-            setBio(myProfile.data.user.bio)
+            setUsername(myProfile.data.data.username)
+            setName(myProfile.data.data.name)
+            setBio(myProfile.data.data.bio)
             setMyProfile(true)
         }
     }
-
-    const navigate = useNavigate();
 
     const handleUpdateProfile = () => {
         navigate('/edit-profile')
@@ -63,6 +72,18 @@ const Profil = () => {
 
     return(
         <div className="main row align-items-center bg vh-100">
+            <Navbar style={{ position: 'absolute', top: '0px' }}>
+                <Container>
+                    <Navbar.Brand href="/homepage">
+                        <img
+                            src="/assets/img/logo-black.png"
+                            className="d-inline-block align-top"
+                            alt="React Bootstrap logo"
+                        />
+                    </Navbar.Brand>
+                </Container>
+            </Navbar>
+
             <div className="container col-auto offset-1">
                 <Button onClick={handleProfile} className="navbar-brand d-flex w-auto">
                     <FontAwesomeIcon icon={faUser} className="mt-2" />
