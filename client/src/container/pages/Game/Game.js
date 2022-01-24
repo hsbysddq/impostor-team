@@ -30,7 +30,7 @@ function Game() {
   let history = useNavigate();
 
   const onClickSubmit = () => {
-    history("/");
+    history("/homepage");
   };
   return (
     <ScoreContext.Provider
