@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import FormRegister from "../../../components/FormRegister";
 
-function Login(data) {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -41,22 +41,23 @@ function Login(data) {
         console.log("res login: ", res);
         const token = res.data.token;
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("username", res.data.data.user.username);
-        console.log(res.data.data.user.username);
-        console.log(token);
-        if (res.data.status === "success") {
+        sessionStorage.setItem("username", res.data.data.data.username);
+        // console.log(res.data);
+        // console.log(token);
+        const userToken = sessionStorage.getItem("token");
+        if (userToken) {
           localStorage.setItem("data", JSON.stringify(res.data));
           // localStorage.setItem("userId", res.data.data.user.id);
           setRedirect(true);
         }
       })
       .catch((err) => {
-        setError(err.response.data.message);
-        console.log("error: ", err.response.data.message);
+        setError(err);
+        console.log("error: ", err);
       });
   };
 
-  const getToken = () => sessionStorage.getItem("token");
+  // const getToken = () => sessionStorage.getItem("token");
 
   return (
     <div>
@@ -66,6 +67,7 @@ function Login(data) {
         textButton="Login"
         isRegister={false}
         isAuth={true}
+        isEdit={false}
         error={error}
         onInputEmail={onInputEmail}
         onInputPassword={onInputPassword}

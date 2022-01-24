@@ -73,17 +73,54 @@ exports.updateUser = async (req, res, next) => {
     const { id } = req.params;
     const { username, bio, name } = req.body;
 
-    const user = await User.update({ username, bio, name }, { where: { id } });
-    if (!user) {
+    const updateUser = await User.update({ username, bio, name }, { where: { id } });
+    if (!updateUser) {
       throw new Error('user not found');
     }
 
+    const user = await User.findOne({
+      attributes: ['id', 'name', 'username', 'avatar', 'bio'],
+      where: {
+        id
+      },
+    })
+
     return res.status(201).json({
-      message: 'successfully update user',
+      status: 'success',
       code: 201,
-      user,
+      data: user,
     });
   } catch (error) {
     next(error);
   }
+};
+
+//get user profile by id
+exports.findOneById = (req, res) => {
+  User.findOne({
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((data) => {
+      if (!data) {
+        return res.status(404).json({
+          result: 'failed',
+          message: 'user not registered',
+        });
+      }
+      res.status(200).json({
+        result: 'success',
+        message: 'successfully retrieve data',
+        data: data,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        result: 'failed',
+        message: 'some error occured while retrieving game',
+        error: err.message,
+      });
+    });
 };

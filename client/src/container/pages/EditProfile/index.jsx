@@ -6,27 +6,31 @@ import FormRegister from "../../../components/FormRegister";
 
 const EditProfile = () => {
   const myProfile = JSON.parse(localStorage.getItem('data'))
-  const data  = myProfile.data.user
-
+  const data  = myProfile.data.data
   const [username, setUsername] = useState(data.username);
-  const [fullName, setFullName] = useState("");
-  const [bio, setBio] = useState("");
+  const [fullName, setFullName] = useState(data.name);
+  const [bio, setBio] = useState(data.bio);
 
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const token  = sessionStorage.getItem("token");
+  //   if (!token) {
+  //       return navigate('/')
+  //   }
+  // }, [navigate])
+
   const handleSubmit = () => {
-    console.log('diklik');
     const newData = {
       username,
       name: fullName,
       bio,
       id: data.id
     };
-    console.log("data: ", newData);
     axios
       .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/${newData.id}`, newData)
       .then((res) => {
-        console.log("res success:", res);
+        localStorage.setItem('data', JSON.stringify(res))
         navigate('/profile')
       })
       .catch((err) => {
