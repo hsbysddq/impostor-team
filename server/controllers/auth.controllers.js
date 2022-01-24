@@ -93,6 +93,7 @@ exports.forgotPassword = async (req, res, next) => {
     }
 
     const token = signToken(user.id);
+    console.log('token:', token);
 
     await user.update({ resetPasswordLink: token });
 
