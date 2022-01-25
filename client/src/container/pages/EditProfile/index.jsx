@@ -31,7 +31,7 @@ const EditProfile = () => {
       id: data.id
     };
     axios
-      .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/${newData.id}`, newData)
+      .put(`https://impostorteam-app.herokuapp.com/api/users/${newData.id}`, newData)
       .then((res) => {
         console.log('res update biodata:', res);
         localStorage.setItem('data', JSON.stringify(res))

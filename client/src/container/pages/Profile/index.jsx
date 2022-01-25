@@ -27,7 +27,7 @@ const Profil = () => {
         if (!token) {
             return navigate('/')
         }
-        axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/users`)
+        axios.get(`https://impostorteam-app.herokuapp.com/api/users`)
         .then((result) => {
             setUsers(result.data.user)
             console.log('result:', result.data);
@@ -41,7 +41,7 @@ const Profil = () => {
 
     const handleDetailUser = (user) => {
         const username = user.username
-        axios.get(`http://localhost:${process.env.REACT_APP_PORT}/api/user/${username}`)
+        axios.get(`https://impostorteam-app.herokuapp.com/api/user/${username}`)
         .then((res) => {
             console.log("res detail:", res.data);
             const myProfile = JSON.parse(localStorage.getItem('data'))

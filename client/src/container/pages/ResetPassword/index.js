@@ -42,7 +42,7 @@ function ResetPassword(props) {
             token: token
         }
         console.log('token: ', token);
-        axios.put(`http://localhost:${process.env.REACT_APP_PORT}/api/reset-password`, data)
+        axios.put(`https://impostorteam-app.herokuapp.com/api/reset-password`, data)
         .then((res) => {
             if(res) {
                 setPassword('')

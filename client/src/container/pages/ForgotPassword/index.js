@@ -18,7 +18,7 @@ const ForgotPassword = (props) => {
         } else {
             console.log(email);
             setAlert('Silakan cek email Anda!')
-            axios.put(`http://localhost:${process.env.REACT_APP_PORT}/api/forgot-password`, { email: email })
+            axios.put(`https://impostorteam-app.herokuapp.com/api/forgot-password`, { email: email })
             .then((res) => {
                 setEmail('')
                 setAlert('Silakan cek email Anda!')

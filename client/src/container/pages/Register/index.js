@@ -23,7 +23,7 @@ function Register(props) {
       password,
     };
     console.log("data: ", data);
-    axios.post(`http://localhost:${process.env.REACT_APP_PORT}/api/register`, data)
+    axios.post(`https://impostorteam-app.herokuapp.com/api/register`, data)
     .then((res) => {
       console.log("success");
       setRedirect(true);

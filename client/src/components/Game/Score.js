@@ -46,7 +46,7 @@ function Score() {
     };
     console.log('newData score:', newData);
     axios
-      .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/score/${newData.id}`, newData)
+      .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
       .then((res) => {
         localStorage.setItem('data', JSON.stringify(res))
         console.log('res score:', res);
