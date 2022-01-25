@@ -41,6 +41,10 @@ User.init(
     resetPasswordLink: {
       type: DataTypes.STRING,
     },
+    score: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    }
   },
   {
     sequelize,

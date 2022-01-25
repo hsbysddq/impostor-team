@@ -18,7 +18,7 @@ exports.getAllUser = async (req, res, next) => {
 //get user profile
 exports.findOne = (req, res) => {
   User.findOne({
-    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio', 'score'],
     where: {
       username: req.params.username,
     },
@@ -79,7 +79,7 @@ exports.updateUser = async (req, res, next) => {
     }
 
     const user = await User.findOne({
-      attributes: ['id', 'name', 'username', 'avatar', 'bio'],
+      attributes: ['id', 'name', 'username', 'avatar', 'bio', 'score'],
       where: {
         id
       },
@@ -123,4 +123,34 @@ exports.findOneById = (req, res) => {
         error: err.message,
       });
     });
+};
+
+// UPDATE SCORE
+exports.updateScore = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    // const { username, bio, name } = req.body;
+    const { score } = req.body
+    console.log('score:', score);
+
+    const updateScore = await User.update({ score }, { where: { id } });
+    if (!updateScore) {
+      throw new Error('user not found');
+    }
+
+    const user = await User.findOne({
+      attributes: ['id', 'name', 'username', 'avatar', 'bio', 'score'],
+      where: {
+        id
+      },
+    })
+
+    return res.status(201).json({
+      status: 'success',
+      code: 201,
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
