@@ -101,7 +101,7 @@ exports.updateUser = async (req, res, next) => {
 //get user profile by id
 exports.findOneById = (req, res) => {
   User.findOne({
-    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio'],
+    attributes: ['id', 'name', 'email', 'username', 'avatar', 'bio', 'score'],
     where: {
       id: req.params.id,
     },
