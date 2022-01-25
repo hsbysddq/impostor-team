@@ -16,5 +16,6 @@ router.put('/users/:id', updateUser);
 // router.get('/user/:username', isAuthentication, findOne);
 router.get('/user/:username', findOne);
 router.get('/users/:id', findOneById);
+router.put('/users/score/:id', updateScore);
 
 module.exports = router;
