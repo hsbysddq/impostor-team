@@ -49,6 +49,10 @@ User.init(
       type: DataTypes.STRING,
       defaultValue: '',
     },
+    score: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    }
   },
   {
     sequelize,

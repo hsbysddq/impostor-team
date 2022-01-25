@@ -26,7 +26,9 @@ const AppStyled = styled.main`
 `;
 
 function Game() {
-  const [score, setScore] = useState(0);
+  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const data  = myProfile.data.data
+  const [score, setScore] = useState(data.score);
   let history = useNavigate();
 
   const onClickSubmit = () => {

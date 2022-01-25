@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { ScoreContext } from "../../container/pages/Game/Game";
 
 const ScoreStyled = styled.div`
@@ -35,6 +36,25 @@ const ScoreStyled = styled.div`
 
 function Score() {
   const { score } = useContext(ScoreContext);
+  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const data  = myProfile.data.data
+
+  useEffect(() => {
+    const newData = {
+      score: score,
+      id: data.id
+    };
+    console.log('newData score:', newData);
+    axios
+      .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/score/${newData.id}`, newData)
+      .then((res) => {
+        localStorage.setItem('data', JSON.stringify(res))
+        console.log('res score:', res);
+      })
+      .catch((err) => {
+        console.log("error: ", err);
+      });
+  }, [data.id, score])
   return (
     <ScoreStyled>
       <small>Score</small>

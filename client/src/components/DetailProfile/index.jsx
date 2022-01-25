@@ -15,6 +15,7 @@ const Foto = (props) => {
         <p className="username">Username : {props.username}</p>
         <p className="username">Full Name : {props.name}</p>
         <p className="email">Bio : {props.bio}</p>
+        <p className="email">Score : {props.score}</p>
       </div>
       {
         props.myProfile && (

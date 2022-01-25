@@ -10,7 +10,10 @@ const EditProfile = () => {
   const [username, setUsername] = useState(data.username);
   const [fullName, setFullName] = useState(data.name);
   const [bio, setBio] = useState(data.bio);
+  // const [score, setScore] = useState(data.score);
 
+  const score = data.score
+  
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -30,6 +33,7 @@ const EditProfile = () => {
     axios
       .put(`http://localhost:${process.env.REACT_APP_PORT}/api/users/${newData.id}`, newData)
       .then((res) => {
+        console.log('res update biodata:', res);
         localStorage.setItem('data', JSON.stringify(res))
         navigate('/profile')
       })
@@ -53,6 +57,7 @@ const EditProfile = () => {
         username={username}
         fullName={fullName}
         bio={bio}
+        score={score}
         textNotes="Back To Profile?"
         textLink="Klick Here"
         urlLink="/profile"

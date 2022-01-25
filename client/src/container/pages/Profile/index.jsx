@@ -13,7 +13,12 @@ const Profil = () => {
     const [username, setUsername] = useState('-')
     const [name, setName] = useState('-')
     const [bio, setBio] = useState('-')
+    const [userScore, setUserScore] = useState('-')
     const [myProfile, setMyProfile] = useState(false)
+
+    // const userData = JSON.parse(localStorage.getItem('data'))
+    // const data  = userData.data.data
+    // const score = data.score
 
     const navigate = useNavigate();
 
@@ -49,6 +54,7 @@ const Profil = () => {
             setUsername(res.data.data.username)
             setName(res.data.data.name)
             setBio(res.data.data.bio)
+            setUserScore(res.data.data.score)
         })
         .catch((err) => {
             console.log(err);
@@ -62,6 +68,7 @@ const Profil = () => {
             setUsername(myProfile.data.data.username)
             setName(myProfile.data.data.name)
             setBio(myProfile.data.data.bio)
+            setUserScore(myProfile.data.data.score)
             setMyProfile(true)
         }
     }
@@ -96,6 +103,7 @@ const Profil = () => {
                                 username={username}
                                 name={name}
                                 bio={bio}
+                                score={userScore}
                                 myProfile={myProfile}
                                 onClick={handleUpdateProfile}
                             />
