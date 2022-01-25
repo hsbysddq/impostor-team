@@ -11,6 +11,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        defaultValue: '',
       },
       username: {
         type: Sequelize.STRING,
@@ -33,9 +34,16 @@ module.exports = {
       },
       bio: {
         type: Sequelize.STRING,
+        defaultValue: '',
+      },
+      score: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
       },
       resetPasswordLink: {
         type: Sequelize.STRING,
+        defaultValue: '',
       },
       createdAt: {
         type: Sequelize.DATE,

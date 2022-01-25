@@ -15,6 +15,7 @@ User.init(
     },
     name: {
       type: DataTypes.STRING,
+      defaultValue: '',
     },
     username: {
       type: DataTypes.STRING,
@@ -37,9 +38,16 @@ User.init(
     },
     bio: {
       type: DataTypes.STRING,
+      defaultValue: '',
+    },
+    score: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
     },
     resetPasswordLink: {
       type: DataTypes.STRING,
+      defaultValue: '',
     },
   },
   {
