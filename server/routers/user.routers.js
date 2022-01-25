@@ -6,6 +6,7 @@ const {
   searchUser,
   findOne,
   findOneById,
+  updateScore,
 } = require('../controllers/user.controllers');
 const { isAuthentication } = require('../middlewares/auth.middlewares');
 
