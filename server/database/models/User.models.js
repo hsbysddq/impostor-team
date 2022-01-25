@@ -42,7 +42,7 @@ User.init(
     },
     score: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
     resetPasswordLink: {

@@ -22,7 +22,7 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   },
 });
 
-sequelize.authenticate().then(() => {
+sequelize.sync({ force: true }).then(() => {
   console.log('connect on database');
 });
 
